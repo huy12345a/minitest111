@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Edit Tour</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Edit Tour</h1>
+    <form action="#" th:action="@{/tours/{id}(id=${tour.id})}" th:object="${tour}" method="post">
+        <div class="form-group">
+            <label for="code">Code:</label>
+            <input type="text" id="code" class="form-control" th:field="*{code}" />
+        </div>
+        <div class="form-group">
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" class="form-control" th:field="*{destination}" />
+        </div>
+        <div class="form-group">
+            <label for="start">Start:</label>
+            <input type="text" id="start" class="form-control" th:field="*{start}" />
+        </div>
+        <div class="form-group">
+            <label for="img">Image:</label>
+            <input type="text" id="img" class="form-control" th:field="*{img}" />
+        </div>
+        <div class="form-group">
+            <label for="province">Province:</label>
+            <input type="text" id="province" class="form-control" th:field="*{province}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <a href="/tours" class="btn btn-secondary mt-3">Back to list</a>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

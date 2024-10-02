@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tour List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">List of Tours</h1>
+    <a th:href="@{/tours/create}" class="btn btn-primary mb-3">Create New Tour</a>
+    <a th:href="@{/provinces}" class="btn btn-primary mb-3">Provinces</a>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Code</th>
+            <th>Destination</th>
+            <th>Start</th>
+            <th>Image</th>
+            <th>Province</th>
+
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tour : ${tours}">
+            <td th:text="${tour.id}"></td>
+            <td th:text="${tour.code}"></td>
+            <td th:text="${tour.destination}"></td>
+            <td th:text="${tour.start}"></td>
+            <td><img th:src="${tour.img}" alt="Tour Image" class="img-thumbnail" style="width: 100px;"></td>
+            <td th:text="${tour.province}"></td> 
+            <td>
+                <a th:href="@{/tours/edit/{id}(id=${tour.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/tours/delete/{id}(id=${tour.id})}"
+                   th:onclick="return confirm('Are you sure you want to delete this tour?')"
+                   class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
